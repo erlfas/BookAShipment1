@@ -21,6 +21,7 @@ export class NavigationComponent implements OnInit {
   constructor(private navigationService: NavigationService) {
     this.subscription = this.navigationService.currentPage.subscribe(page => {
       this.currentPage = page;
+      console.log('NavigationComponent: currentPage := ' + this.currentPage);
       if (this.currentPage === 'type') {
         this.typeIsActive = true;
         this.consignorIsActive = false;

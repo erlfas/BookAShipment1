@@ -9,6 +9,8 @@ import {
   AbstractControl
 } from '@angular/forms';
 import { Consignor } from './consignor.model';
+import { NavigationService } from '../services/navigation.service';
+import { ShipmentService } from '../services/shipment.service';
 
 @Component({
   selector: 'consignor',
@@ -26,7 +28,11 @@ export class ConsignorComponent implements OnInit {
   email: AbstractControl;
   phone: AbstractControl;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(
+    formBuilder: FormBuilder, 
+    private navigationService: NavigationService,
+    private shipmentService: ShipmentService) {
+    
     this.consignorForm = formBuilder.group({
       'name': ['', Validators.required],
       'address': ['', Validators.required],
@@ -55,7 +61,7 @@ export class ConsignorComponent implements OnInit {
     console.log('email: ' + this.email.value);
     console.log('phone: ' + this.phone.value);
 
-    new Consignor(
+    let consignor: Consignor = new Consignor(
       this.name.value, 
       this.address.value, 
       this.postalcode.value, 
@@ -63,6 +69,10 @@ export class ConsignorComponent implements OnInit {
       this.email.value, 
       this.phone.value
     );
+
+    this.shipmentService.consignor.next(consignor);
+
+    this.navigationService.currentPage.next('consignee');
   }
 
 }

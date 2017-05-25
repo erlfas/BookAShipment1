@@ -19,6 +19,9 @@ import { CartComponent } from './cart/cart.component';
 import { SummaryComponent } from './summary/summary.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+import { NavigationService } from './services/navigation.service';
+import { ShipmentService } from './services/shipment.service';
+
 const routes: Routes = [
   { path: '', redirectTo: 'type', pathMatch: 'full' },
   { path: 'type', component: ShipmentTypeComponent },
@@ -45,7 +48,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ NavigationService, ShipmentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
