@@ -1,0 +1,36 @@
+<h1>Choose package</h1>
+
+
+<div class="row">
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../assets/pictures/box.png" alt="Small package">
+      <div class="caption">
+        <h3>Small</h3>
+        <p><a [routerLink]="['/consignor']" (click)="packageWasSelected('small')" class="btn btn-primary btn-lg" role="button">89</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../assets/pictures/box.png" alt="Medium package">
+      <div class="caption">
+        <h3>Medium</h3>
+        <p><a [routerLink]="['/consignor']" (click)="packageWasSelected('medium')" class="btn btn-primary btn-lg" role="button">139</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../assets/pictures/box.png" alt="Large package">
+      <div class="caption">
+        <h3>Large</h3>
+        <p><a [routerLink]="['/consignor']" (click)="packageWasSelected('large')" class="btn btn-primary btn-lg" role="button">259</a>
+      </div>
+    </div>
+  </div>
+
+</div>
