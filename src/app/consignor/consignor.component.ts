@@ -54,12 +54,6 @@ export class ConsignorComponent implements OnInit {
   }
 
   onSubmit(value: string): void {
-    console.log('name: ' + this.name.value);
-    console.log('address: ' + this.address.value);
-    console.log('postal code: ' + this.postalcode.value);
-    console.log('city: ' + this.city.value);
-    console.log('email: ' + this.email.value);
-    console.log('phone: ' + this.phone.value);
 
     let consignor: Consignor = new Consignor(
       this.name.value, 
