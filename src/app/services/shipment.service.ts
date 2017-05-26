@@ -5,6 +5,8 @@ import { Consignor } from '../consignor/consignor.model';
 import { Consignee } from '../consignee/consignee.model';
 import { ShipmentType } from '../shipment-type/shipment-type.model';
 
+const initialShipments: Shipment[] = [];
+
 interface IShipmentsOperation extends Function {
     (shipms: Shipment[]): Shipment[];
 }
@@ -12,38 +14,28 @@ interface IShipmentsOperation extends Function {
 @Injectable()
 export class ShipmentService {
 
-    consignor: Subject<Consignor> = new BehaviorSubject<Consignor>(null);
+    consignor: BehaviorSubject<Consignor> = new BehaviorSubject<Consignor>(null);
+    currentConsignee: BehaviorSubject<Consignee> = new BehaviorSubject<Consignee>(null);
+    currentShipmentType: BehaviorSubject<ShipmentType> = new BehaviorSubject<ShipmentType>(null);
 
-    currentConsignee: Subject<Consignee> = new BehaviorSubject<Consignee>(null);
-
-    currentShipmentType: Subject<ShipmentType> = new BehaviorSubject<ShipmentType>(null);
-
-    shipments: Observable<Shipment[]>;
+    shipments: Shipment[] = [];
     newShipment: Subject<Shipment> = new Subject<Shipment>();
-    createShipment: Subject<Shipment> = new Subject<Shipment>();
-    updateShipment: Subject<any> = new Subject<any>();
 
     constructor() {
-        this.shipments = this.updateShipment
-            .scan((ss: Shipment[], operation: IShipmentsOperation) => {
-                return operation(ss);
-            }, [])
-            .publishReplay(1)
-            .refCount();
+        this.newShipment.subscribe(x => {
+            this.shipments = this.shipments.concat(x);
+            console.log('# shipments after concatenation: ' + this.shipments.length);
+        });
 
-        this.createShipment
-            .map( function(s: Shipment): IShipmentsOperation {
-                return (ss: Shipment[]) => {
-                    return ss.concat(s);
-                };
-            })
-            .subscribe(this.updateShipment);
-
-        this.newShipment.subscribe(this.createShipment);
-
-        this.consignor.forEach((x: Consignor) => {
+        this.consignor.subscribe((x: Consignor) => {
             if (x != null) {
-                console.log('Consignor is set to: ' + x.name);
+                console.log('Observer of consignor: got: ' + x.name);
+            }
+        });
+
+        this.currentShipmentType.subscribe((x: ShipmentType) => {
+            if (x != null) {
+                console.log('Observer of currentShipmentType: got: ' + x.type);
             }
         });
     }

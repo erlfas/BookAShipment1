@@ -1,3 +1,91 @@
-<p>
-  consignee works!
-</p>
+<h1>Consignee</h1>
+
+<form [formGroup]="consigneeForm" (ngSubmit)="onSubmit()" class="ui form">
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Name</span>
+    <input 
+      id="name" 
+      [formControl]="name" 
+      type="text" 
+      class="form-control" 
+      placeholder="Name" 
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !name.valid && name.touched}">
+  </div>
+
+  <div><span><br /></span></div> 
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Address</span>
+    <input 
+      id="address" 
+      [formControl]="address" 
+      type="text" 
+      class="form-control" 
+      placeholder="Address" 
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !address.valid && address.touched}">
+  </div>
+
+  <div><span><br /></span></div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Postal code</span>
+    <input 
+      id="postalcode" 
+      [formControl]="postalcode"
+      type="text"
+      class="form-control"
+      placeholder="Postal code"
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !postalcode.valid && postalcode.touched}">
+  </div>
+
+  <div><span><br /></span></div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">City</span>
+    <input 
+      id="city" 
+      [formControl]="city" 
+      type="text" 
+      class="form-control" 
+      placeholder="City" 
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !city.valid && city.touched}">
+  </div>
+
+  <div><span><br /></span></div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Email</span>
+    <input 
+      id="email" 
+      [formControl]="email" 
+      type="text" 
+      class="form-control" 
+      placeholder="Email" 
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !email.valid && email.touched}">
+  </div>
+
+  <div><span><br /></span></div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Mobile phone</span>
+    <input 
+      id="phone" 
+      [formControl]="phone" 
+      type="text" 
+      class="form-control" 
+      placeholder="Mobile phone" 
+      aria-describedby="basic-addon1"
+      [ngClass]="{'alert alert-danger': !phone.valid && phone.touched}">
+  </div>
+
+  <div><span><br /></span></div>
+
+  <button [routerLink]="['/cart']" (click)="onSubmit()" type="button" class="btn btn-default">Next</button>
+
+</form>

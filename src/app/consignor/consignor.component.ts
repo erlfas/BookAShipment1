@@ -53,7 +53,9 @@ export class ConsignorComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: string): void {
+  onSubmit(): void {
+
+    console.log('Consignor: onSubmit');
 
     let consignor: Consignor = new Consignor(
       this.name.value, 

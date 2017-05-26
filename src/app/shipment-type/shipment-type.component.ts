@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ShipmentType } from './shipment-type.model';
 import { NavigationService } from '../services/navigation.service';
+import { ShipmentService } from '../services/shipment.service';
 
 @Component({
   selector: 'shipment-type',
@@ -15,12 +16,15 @@ import { NavigationService } from '../services/navigation.service';
 })
 export class ShipmentTypeComponent implements OnInit {
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(
+    private navigationService: NavigationService,
+    private shipmentService: ShipmentService) { }
 
   ngOnInit() {}
 
-  packageWasSelected(shipmentType: ShipmentType): void {
-    console.log('package type selected: ' + shipmentType);
+  packageWasSelected(shipmentTypeStr: string): void {
+    let shipmentType: ShipmentType = new ShipmentType(shipmentTypeStr);
+    this.shipmentService.currentShipmentType.next(shipmentType);
     this.navigationService.currentPage.next('consignor');
   }
 
