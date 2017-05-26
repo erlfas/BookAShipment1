@@ -40,6 +40,12 @@ export class ShipmentService {
             .subscribe(this.updateShipment);
 
         this.newShipment.subscribe(this.createShipment);
+
+        this.consignor.forEach((x: Consignor) => {
+            if (x != null) {
+                console.log('Consignor is set to: ' + x.name);
+            }
+        });
     }
 
 }
