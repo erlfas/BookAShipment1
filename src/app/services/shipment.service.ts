@@ -5,12 +5,6 @@ import { Consignor } from '../consignor/consignor.model';
 import { Consignee } from '../consignee/consignee.model';
 import { ShipmentType } from '../shipment-type/shipment-type.model';
 
-const initialShipments: Shipment[] = [];
-
-interface IShipmentsOperation extends Function {
-    (shipms: Shipment[]): Shipment[];
-}
-
 @Injectable()
 export class ShipmentService {
 
