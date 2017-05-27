@@ -23,7 +23,24 @@ export class ShipmentTypeComponent implements OnInit {
   ngOnInit() {}
 
   packageWasSelected(shipmentTypeStr: string): void {
-    let shipmentType: ShipmentType = new ShipmentType(shipmentTypeStr);
+    let price: number = 89; // small
+    if (shipmentTypeStr != null) {
+      switch (shipmentTypeStr.toLowerCase()) {
+        case "small":
+          price = 89;
+          break;
+        case "medium":
+          price = 139;
+          break;
+        case "large":
+          price = 259;
+          break;
+      }
+    } else {
+      shipmentTypeStr = "small";
+    }
+    
+    let shipmentType: ShipmentType = new ShipmentType(shipmentTypeStr, price);
     this.shipmentService.currentShipmentType.next(shipmentType);
     this.navigationService.currentPage.next('consignor');
   }

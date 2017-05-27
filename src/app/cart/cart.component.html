@@ -1,3 +1,14 @@
-<p>
-  cart works!
-</p>
+<table class="table">
+  <tr>
+    <th>Consignor</th>
+    <th>Consignee</th>
+    <th>Shipment type</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let s of shipments">
+    <td>{{ s.consignor.name }}, {{ s.consignor.address }}, {{ s.consignor.postalCode }}, {{ s.consignor.city }}</td>
+    <td>{{ s.consignee.name }}, {{ s.consignee.address }}, {{ s.consignee.postalCode }}, {{ s.consignee.city }}</td>
+    <td>{{ s.shipmentType.type }}</td>
+    <td>{{ s.shipmentType.price }}</td>
+  </tr>
+</table>
