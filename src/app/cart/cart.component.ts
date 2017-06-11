@@ -41,7 +41,7 @@ export class CartComponent implements OnInit {
     console.log('body to send: ' + jsonContent);
 
     this.http.post(
-      'https://84v4tsjjbi.execute-api.eu-west-1.amazonaws.com/test/book',
+      'localhost:8080/book',
       jsonContent,
       options)
       .subscribe((res: Response) => {
