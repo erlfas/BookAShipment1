@@ -1,9 +1,9 @@
-import { 
-  Component, 
-  OnInit 
+import {
+  Component,
+  OnInit
 } from '@angular/core';
-import { 
-  FormBuilder, 
+import {
+  FormBuilder,
   FormGroup,
   Validators,
   AbstractControl
@@ -28,11 +28,15 @@ export class ConsignorComponent implements OnInit {
   email: AbstractControl;
   phone: AbstractControl;
 
+  title: string = 'My first AGM project';
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor(
-    formBuilder: FormBuilder, 
+    formBuilder: FormBuilder,
     private navigationService: NavigationService,
     private shipmentService: ShipmentService) {
-    
+
     this.consignorForm = formBuilder.group({
       'name': ['', Validators.required],
       'address': ['', Validators.required],
@@ -58,11 +62,11 @@ export class ConsignorComponent implements OnInit {
     console.log('Consignor: onSubmit');
 
     let consignor: Consignor = new Consignor(
-      this.name.value, 
-      this.address.value, 
-      this.postalcode.value, 
-      this.city.value, 
-      this.email.value, 
+      this.name.value,
+      this.address.value,
+      this.postalcode.value,
+      this.city.value,
+      this.email.value,
       this.phone.value
     );
 

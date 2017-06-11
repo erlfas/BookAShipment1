@@ -11,6 +11,8 @@ import {
   Routes
 } from '@angular/router';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { ConsignorComponent } from './consignor/consignor.component';
 import { ConsigneeComponent } from './consignee/consignee.component';
@@ -46,7 +48,11 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBy_ZKysDR5N2JpFOtnEFihi8knB-NU1-g'
+    })
+
   ],
   providers: [ NavigationService, ShipmentService ],
   bootstrap: [AppComponent]
