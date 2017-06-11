@@ -1,0 +1,24 @@
+{
+  "consignee": {
+    "address": "Veigaten 3",
+    "city": "Bergen",
+    "email": "ola@nordmann.no",
+    "name": "Ola Nordmann",
+    "phone": "87654321",
+    "postalCode": "5006"
+  },
+  "consignor": {
+    "address": "Gateveien 1",
+    "city": "Oslo",
+    "email": "butikken@butikken.no",
+    "name": "Butikken",
+    "phone": "12345678",
+    "postalCode": "0350"
+  },
+  "customerId": "2017-06-11-10-38-00-067e6162-3b6f-4ae2-a171-2470b63dff00",
+  "shipmentType": {
+    "price": 123,
+    "type": "small"
+  },
+ "orderTimestamp": "2017-06-11-10-38-00"
+}
