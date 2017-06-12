@@ -5,7 +5,6 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import {
   RouterModule,
   Routes
@@ -15,6 +14,8 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { ConsignorComponent } from './consignor/consignor.component';
+import { ConsignorMapComponent } from './consignor/consignor-map/consignor-map.component';
+import { ConsignorFormComponent } from './consignor/consignor-form/consignor-form.component';
 import { ConsigneeComponent } from './consignee/consignee.component';
 import { ShipmentTypeComponent } from './shipment-type/shipment-type.component';
 import { CartComponent } from './cart/cart.component';
@@ -23,8 +24,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { NavigationService } from './services/navigation.service';
 import { ShipmentService } from './services/shipment.service';
-import { ConsignorMapComponent } from './consignor/consignor-map/consignor-map.component';
-import { ConsignorFormComponent } from './consignor/consignor-form/consignor-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'type', pathMatch: 'full' },

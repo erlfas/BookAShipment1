@@ -22,6 +22,15 @@ import { ShipmentService } from '../services/shipment.service';
 })
 export class ConsignorComponent implements OnInit {
 
+  latInConsignor: number;
+  lngInConsignor: number;
+
   ngOnInit() {}
+
+  postalCodeWasSet(postalCode: string): void {
+    console.log('consignor: postalCodeWasSet: ' + postalCode);
+    this.latInConsignor = 62.5509767;
+    this.lngInConsignor = 7.6830656;
+  }
 
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  Input 
+} from '@angular/core';
 
 @Component({
   selector: 'consignor-map',
@@ -6,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./consignor-map.component.css']
 })
 export class ConsignorMapComponent implements OnInit {
-
-  title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  
+  @Input() lat: number;
+  @Input() lng: number;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.lat = 51.678418;
+    this.lng = 7.809007;
   }
 
 }

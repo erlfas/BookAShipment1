@@ -38,6 +38,8 @@ export class ConsignorFormComponent implements OnInit {
     private navigationService: NavigationService,
     private shipmentService: ShipmentService) {
 
+    this.postalCodeSet = new EventEmitter<string>();
+
     this.consignorForm = formBuilder.group({
       'name': ['', Validators.required],
       'address': ['', Validators.required],
@@ -61,7 +63,7 @@ export class ConsignorFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit(): void {
 
