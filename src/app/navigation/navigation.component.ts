@@ -16,7 +16,6 @@ export class NavigationComponent implements OnInit {
   consignorIsActive: boolean;
   consigneeIsActive: boolean;
   cartIsActive: boolean;
-  summaryIsActive: boolean;
 
   constructor(private navigationService: NavigationService) {
     this.subscription = this.navigationService.currentPage.subscribe(page => {
@@ -27,31 +26,21 @@ export class NavigationComponent implements OnInit {
         this.consignorIsActive = false;
         this.consigneeIsActive = false;
         this.cartIsActive = false;
-        this.summaryIsActive = false;
       } else if (this.currentPage === 'consignor') {
         this.typeIsActive = false;
         this.consignorIsActive = true;
         this.consigneeIsActive = false;
         this.cartIsActive = false;
-        this.summaryIsActive = false;
       } else if (this.currentPage === 'consignee') {
         this.typeIsActive = false;
         this.consignorIsActive = false;
         this.consigneeIsActive = true;
         this.cartIsActive = false;
-        this.summaryIsActive = false;
       } else if (this.currentPage === 'cart') {
         this.typeIsActive = false;
         this.consignorIsActive = false;
         this.consigneeIsActive = false;
         this.cartIsActive = true;
-        this.summaryIsActive = false;
-      } else if (this.currentPage === 'summary') {
-        this.typeIsActive = false;
-        this.consignorIsActive = false;
-        this.consigneeIsActive = false;
-        this.cartIsActive = false;
-        this.summaryIsActive = true;
       } else {
         
       }
