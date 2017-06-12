@@ -23,6 +23,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { NavigationService } from './services/navigation.service';
 import { ShipmentService } from './services/shipment.service';
+import { ConsignorMapComponent } from './consignor/consignor-map/consignor-map.component';
+import { ConsignorFormComponent } from './consignor/consignor-form/consignor-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'type', pathMatch: 'full' },
@@ -41,7 +43,9 @@ const routes: Routes = [
     ShipmentTypeComponent,
     CartComponent,
     SummaryComponent,
-    NavigationComponent
+    NavigationComponent,
+    ConsignorMapComponent,
+    ConsignorFormComponent
   ],
   imports: [
     BrowserModule,
